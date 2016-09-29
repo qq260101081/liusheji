@@ -1,31 +1,29 @@
 <?php
-/**
- * @link http://www.yiiframework.com/
- * @copyright Copyright (c) 2008 Yii Software LLC
- * @license http://www.yiiframework.com/license/
- */
 
 namespace backend\assets;
 
 use yii\web\AssetBundle;
 
 /**
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @since 2.0
+ * Main backend application asset bundle.
  */
 class AppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/style.css',
+        'default/default.css',
+        'default/core.css',
     ];
     public $js = [
-    	//'http://cdn.bootcss.com/jquery/2.1.3/jquery.min.js',
-    	
+        'default/js/jquery-2.1.4.min.js',
+        'default/js/dwz.min.js',
+        'default/js/dwz.regional.zh.js',
+    	'default/js/jquery.validate.min.js',
+    	'default/js/dwz.ajax.js',    		
     ];
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+        //'yii\web\YiiAsset',
+        //'yii\bootstrap\BootstrapAsset',
     ];
 }

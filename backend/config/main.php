@@ -11,18 +11,20 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [
-    	'panic-buying' => [
-            'class' => 'backend\modules\PanicBuying\PanicBuying',
-        ],
-    	'hospital' => [
-    		'class' => 'backend\modules\hospital\Hospital',
-    	],
-    ],
+    'modules' => [],
+		'language'=>'zh-CN',
     'components' => [
+        'request' => [
+            'csrfParam' => '_csrf-backend',
+        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
+            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+        ],
+        'session' => [
+            // this is the name of the session cookie used for login on the backend
+            'name' => 'advanced-backend',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -33,9 +35,21 @@ return [
                 ],
             ],
         ],
-        'errorHandler' => [
-            'errorAction' => 'site/error',
+        //'errorHandler' => [
+          //  'errorAction' => 'site/error',
+        //],
+    	'authManager' => [
+    		'class' => 'yii\rbac\DbManager',
+    		//'defaultRoles' => ['guest'],
+    	],
+        /*
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+            ],
         ],
+        */
     ],
     'params' => $params,
 ];

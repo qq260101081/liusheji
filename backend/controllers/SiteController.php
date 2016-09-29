@@ -2,87 +2,70 @@
 namespace backend\controllers;
 
 use Yii;
-use yii\filters\AccessControl;
-use yii\web\Controller;
-use common\models\LoginForm;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use common\models\LoginForm;
+use yii\web\Controller;
+use backend\components\BaseController;
 
 /**
  * Site controller
  */
-class SiteController extends Controller
+class SiteController extends BaseController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['login', 'error'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['logout', 'index'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
 
+	public function actions()
+	{
+		return [
+			'error' => [
+				'class' => 'yii\web\ErrorAction',
+			],
+		];
+	}
+	
+	
+	
     /**
-     * @inheritdoc
+     * Displays homepage.
+     *
+     * @return string
      */
-    public function actions()
-    {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-        ];
-    }
-
     public function actionIndex()
     {
+    	if (Yii::$app->user->isGuest) {
+    		return $this->redirect(['site/login']);
+    	}
         return $this->render('index');
     }
-    
-    public function actionWelcome()
-    {
-    	return $this->renderPartial('welcome');
-    }
 
+    /**
+     * Login action.
+     *
+     * @return string
+     */
     public function actionLogin()
     {
-    	$this->layout = false;
-        if (!\Yii::$app->user->isGuest) {
+        if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
         $model = new LoginForm();
-        
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-      
+        	
             return $this->goBack();
         } else {
         	
-            return $this->render('login', [
+            return $this->renderAjax('login', [
                 'model' => $model,
             ]);
         }
     }
 
+    /**
+     * Logout action.
+     *
+     * @return string
+     */
     public function actionLogout()
     {
         Yii::$app->user->logout();

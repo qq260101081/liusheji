@@ -18,13 +18,7 @@
         "yiisoft/yii2": ">=2.0.6",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "dmstr/yii2-adminlte-asset": "2.*",
-        "kucha/ueditor": "*",
-        "kartik-v/yii2-widget-depdrop": "@dev",
-        "kartik-v/yii2-widget-select2": "@dev",
-        "kartik-v/yii2-widget-fileinput": "@dev",
-        "kartik-v/yii2-widget-datepicker": "@dev",
-        "kartik-v/yii2-widget-growl": "*"
+        "kartik-v/yii2-export": "@dev"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

@@ -1,54 +1,56 @@
-﻿<?php
-use backend\assets\AppAsset;
-use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
-$this->title = '美啦啦-后台管理';
-$this->registerCssFile('css/login.css');
-AppAsset::register($this);
+<?php 
+	$this->registerCssFile('default/login.css');
 ?>
-<?php $this->beginPage()?>
-<!DOCTYPE HTML>
-<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head()?>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>G2G-OA管理平台</title>
+
 </head>
+
 <body>
-	<?php $this->beginBody() ?>
-	<div class="container-fluid" id="login-page">
-    	<div class="row">
-        	<div class="col-md-3"></div>
-            <div class="col-md-6">
-				<?php $form = ActiveForm::begin([
-					'id' => 'login-form',
-					'options' => ['class'=>'form-horizontal'],
-					'fieldConfig' => [
-					       'template' => "<div class='col-xs-3 col-sm-2 text-right padding-right'>{label}</div><div class='col-xs-8 col-sm-6'>{input}</div><div class='col-xs-12 col-xs-offset-4 col-sm-4 col-sm-offset-0 padding-left'>{error}</div>",
-					]
-				]); ?>
-				
-                <?= $form->field($model, 'username')->textInput(['placeholder'=>'输入登录账户名']);?>
-                <?= $form->field($model, 'password')->textInput(['placeholder'=>'输入登录密码']);?>
-                <div class="row">
-                    <div class="col-md-2"></div>	
-                    <div class="col-md-4">
-                    <?php echo Html::activeCheckbox($model, 'rememberMe',['id'=>'online'])?>
-                    </div>
-                    <div class="col-xs-6 col-sm-4">
-                        
-                        <?=Html::submitButton(' &nbsp;登 &nbsp;&nbsp;&nbsp;录&nbsp; ',['class'=>'btn btn-success btn-big']) ?>
-                    </div>   
-                </div>  
-                <?php ActiveForm::end(); ?>
-            </div>
-		
-        	<div class="col-md-3"></div>
+	<h1>G2G-OA管理平台<sup>2016</sup></h1>
+
+<div class="login" style="margin-top:50px;">
+    
+    <div class="header">
+        <div class="switch" id="switch">
+        	<a class="switch_btn_focus" id="switch_qlogin" href="javascript:void(0);" tabindex="7">快速登录</a>
+			<div class="switch_bottom" id="switch_bottom" style="position: absolute; width: 64px; left: 0px;"></div>
         </div>
+    </div>    
+  	<div>
+  		<?php foreach ($model->getErrors() as $v):;?>
+  			<div style="color:red;text-align:center;"><?php echo $v[0] . "<br>";?></div>
+  		<?php endforeach;?>
 	</div>
-    <?php $this->endBody() ?>
+    
+    <div class="web_qr_login" id="web_qr_login" style="display: block; height: 235px;">    
+            <!--登录-->
+            <div class="web_login" id="web_login">
+               <div class="login-box">
+			<div class="login_form">
+				<form action="index.php?r=site/login" name="loginform" accept-charset="utf-8" id="login_form" class="loginForm" method="post">
+                <div class="uinArea" id="uinArea">
+                <label class="input-tips" for="u">帐号：</label>
+                <div class="inputOuter" id="uArea">
+                    <input type="text" id="u" name="LoginForm[username]" class="inputstyle"/>
+                </div>
+                </div>
+                <div class="pwdArea" id="pwdArea">
+               <label class="input-tips" for="p">密码：</label> 
+               <div class="inputOuter" id="pArea">
+                    <input type="password" id="p" name="LoginForm[password]" class="inputstyle"/>
+                </div>
+                <input type="hidden" name="LoginForm[rememberMe]" value="1">
+                </div>
+               
+                <div style="padding-left:50px;margin-top:20px;"><input type="submit" value="登 录" style="width:150px;" class="button_blue"/></div>
+              </form>
+           </div>
+            	</div>
+            </div>
+            <!--登录end-->
+  </div>
+ </div>
 </body>
 </html>
-<?php $this->endPage() ?>

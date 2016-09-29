@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit97f60f486aee3c9bc14072d1bbd961d8
+class ComposerStaticInit7effa7319e3c0ada0bbbb1b3167c8468
 {
     public static $files = array (
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
@@ -23,29 +23,15 @@ class ComposerStaticInit97f60f486aee3c9bc14072d1bbd961d8
             'yii\\bootstrap\\' => 14,
             'yii\\' => 4,
         ),
-        'r' => 
-        array (
-            'rmrevin\\yii\\fontawesome\\' => 24,
-        ),
         'k' => 
         array (
-            'kucha\\ueditor\\' => 14,
-            'kartik\\select2\\' => 15,
-            'kartik\\plugins\\fileinput\\' => 25,
-            'kartik\\plugins\\depdrop\\' => 23,
-            'kartik\\growl\\' => 13,
-            'kartik\\file\\' => 12,
-            'kartik\\depdrop\\' => 15,
-            'kartik\\date\\' => 12,
+            'kartik\\grid\\' => 12,
+            'kartik\\export\\' => 14,
+            'kartik\\dialog\\' => 14,
             'kartik\\base\\' => 12,
-        ),
-        'd' => 
-        array (
-            'dmstr\\' => 6,
         ),
         'c' => 
         array (
-            'creocoder\\nestedsets\\' => 21,
             'cebe\\markdown\\' => 14,
         ),
         'F' => 
@@ -87,53 +73,21 @@ class ComposerStaticInit97f60f486aee3c9bc14072d1bbd961d8
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2',
         ),
-        'rmrevin\\yii\\fontawesome\\' => 
+        'kartik\\grid\\' => 
         array (
-            0 => __DIR__ . '/..' . '/rmrevin/yii2-fontawesome',
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-grid',
         ),
-        'kucha\\ueditor\\' => 
+        'kartik\\export\\' => 
         array (
-            0 => __DIR__ . '/..' . '/kucha/ueditor',
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-export',
         ),
-        'kartik\\select2\\' => 
+        'kartik\\dialog\\' => 
         array (
-            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-select2',
-        ),
-        'kartik\\plugins\\fileinput\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/kartik-v/bootstrap-fileinput',
-        ),
-        'kartik\\plugins\\depdrop\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/kartik-v/dependent-dropdown',
-        ),
-        'kartik\\growl\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-growl',
-        ),
-        'kartik\\file\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-fileinput',
-        ),
-        'kartik\\depdrop\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-depdrop',
-        ),
-        'kartik\\date\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-datepicker',
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-dialog',
         ),
         'kartik\\base\\' => 
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-krajee-base',
-        ),
-        'dmstr\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/dmstr/yii2-adminlte-asset',
-        ),
-        'creocoder\\nestedsets\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/creocoder/yii2-nested-sets/src',
         ),
         'cebe\\markdown\\' => 
         array (
@@ -146,11 +100,11 @@ class ComposerStaticInit97f60f486aee3c9bc14072d1bbd961d8
     );
 
     public static $prefixesPsr0 = array (
-        'c' => 
+        'P' => 
         array (
-            'cebe\\gravatar\\' => 
+            'PHPExcel' => 
             array (
-                0 => __DIR__ . '/..' . '/cebe/yii2-gravatar',
+                0 => __DIR__ . '/..' . '/phpoffice/phpexcel/Classes',
             ),
         ),
         'H' => 
@@ -172,9 +126,9 @@ class ComposerStaticInit97f60f486aee3c9bc14072d1bbd961d8
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit97f60f486aee3c9bc14072d1bbd961d8::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit97f60f486aee3c9bc14072d1bbd961d8::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit97f60f486aee3c9bc14072d1bbd961d8::$prefixesPsr0;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit7effa7319e3c0ada0bbbb1b3167c8468::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit7effa7319e3c0ada0bbbb1b3167c8468::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit7effa7319e3c0ada0bbbb1b3167c8468::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }
