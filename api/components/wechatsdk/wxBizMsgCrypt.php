@@ -5,7 +5,7 @@ namespace api\components\wechatsdk;
  *
  * @copyright Copyright (c) 1998-2014 Tencent Inc.
  */
-
+use api\components\wechatsdk\Prpcrypt;
 
 /**
  * 1.第三方回复加密消息给公众平台；
