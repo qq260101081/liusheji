@@ -41,7 +41,7 @@ class WechatController extends Controller
         if ($postObj->MsgType == 'event')
         {
             //如果是关注 subscribe 事件
-            if (strtolower($postObj->Event == 'subscribe'))
+            if (strtolower($postObj->Event) == 'subscribe')
             {
                 //回复用户消息
                 $toUser   = $postObj->FromUserName;
