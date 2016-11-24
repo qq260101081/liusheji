@@ -4,6 +4,7 @@ namespace api\controllers;
 
 use Yii;
 use yii\web\Controller;
+use api\wechatSdk\WXBizMsgCrypt;
 
 
 class WechatController extends Controller
@@ -46,23 +47,40 @@ class WechatController extends Controller
             if (strtolower($postObj->Event) == 'subscribe')
             {
                 //回复用户消息
-                $toUser   = $postObj->FromUserName;
-                $fromUser = $postObj->toUserName;
-                $time     = time();
-                $MsgType  = 'text';
-                $Content  = '欢迎关注我们的微信公众号';
-                $template = "<xml>
+                $encryptMsg = '';
+                $nonce      = Yii::$app->request->get('nonce');
+
+                $toUser     = $postObj->FromUserName;
+                $fromUser   = $postObj->toUserName;
+                $time       = time();
+                $MsgType    = 'text';
+                $Content    = '欢迎关注我们的微信公众号';
+                $template   = "<xml>
                                 <ToUserName><![CDATA[%s]]></ToUserName>
                                 <FromUserName><![CDATA[%s]]></FromUserName>
-                                <CreateTime>12345678</%s>
+                                <CreateTime>%s</CreateTime>
                                 <MsgType><![CDATA[%s]]></MsgType>
                                 <Content><![CDATA[%s]]></Content>
                             </xml>";
                 $info     = sprintf($template, $toUser, $fromUser, $time, $MsgType, $Content);
-                echo $info;
+
+                $pc = new WXBizMsgCrypt(
+                    Yii::$app->params['wechat']['token'],
+                    Yii::$app->params['wechat']['encodingAESKey'],
+                    Yii::$app->params['wechat']['appid']
+                );
+                //加密消息
+                $errCode = $pc->encryptMsg($info, $time, $nonce, $encryptMsg);
+
+                if ($errCode != 0) echo $errCode;
+
+                echo $encryptMsg;
             }
         }
     }
+
+
+
 
     //微信服务接入时，服务器需授权验证
     public function actionValid()
