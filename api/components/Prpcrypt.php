@@ -1,5 +1,5 @@
 <?php
-namespace api\components\wechatsdk;
+namespace api\components;
 /**
  * Created by 260101081@qq.com
  * User: carl

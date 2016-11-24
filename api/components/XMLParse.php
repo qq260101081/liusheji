@@ -1,5 +1,5 @@
 <?php
-namespace api\components\wechatsdk;
+namespace api\components;
 
 
 /**
