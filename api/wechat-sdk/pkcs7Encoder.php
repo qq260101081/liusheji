@@ -1,6 +1,5 @@
 <?php
-namespace api\wechatSdk;
-use api\wechatSdk\ErrorCode;
+namespace api\Wechat_sdk;
 
 /**
  * PKCS7Encoder class

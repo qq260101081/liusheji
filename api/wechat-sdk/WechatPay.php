@@ -1,6 +1,6 @@
 <?php
 
-namespace api\wechatSdk;
+namespace api\Wechat_sdk;
 
 use Yii;
 

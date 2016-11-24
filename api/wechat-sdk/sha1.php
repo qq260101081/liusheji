@@ -1,6 +1,5 @@
 <?php
-namespace api\wechatSdk;
-use api\wechatSdk\ErrorCode;
+namespace api\Wechat_sdk;
 
 /**
  * SHA1 class

@@ -1,7 +1,6 @@
 <?php
-namespace api\wechatSdk;
+namespace api\Wechat_sdk;
 
-use api\wechatSdk\ErrorCode;
 
 /**
  * XMLParse class
