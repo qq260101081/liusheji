@@ -1,5 +1,5 @@
 <?php
-namespace api\wechat_sdk;
+namespace api\WechatSDK;
 /**
  * 对公众平台发送给公众账号的消息加解密示例代码.
  *
