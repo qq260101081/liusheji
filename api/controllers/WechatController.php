@@ -14,7 +14,7 @@ class WechatController extends Controller
         $data       = Yii::$app->request->get();
         $nonce     = $data['nonce'];
         $timestamp = $data['timestamp'];
-        $echostr   = $data['echostr'];
+        $echostr   = isset($data['echostr']) ? $data['echostr'] : '';
         $signature = $data['signature'];
         $token     = Yii::$app->params['wechat']['token'];
 
@@ -36,7 +36,7 @@ class WechatController extends Controller
         //1.获取到微信推送过来的POST数据（xml格式）
         $postArr = $GLOBALS['HTTP_RAW_POST_DATA'];
         //2.处理消息类型，并设回复类型和内容
-        $postObj = simplexml_load_string($postArr);
+        $postObj = simplexml_load_string($postArr, 'SimpleXMLElement', LIBXML_NOCDATA);
         //判断该数据包是否是订阅的事件推送
         if ($postObj->MsgType == 'event')
         {
