@@ -3,39 +3,65 @@
 namespace api\controllers;
 
 use Yii;
-use yii\rest\ActiveController;
-//use yii\web\Controller;
-use yii\web\Response;
-use yii\filters\Cors;
-use api\sdk\WechatPay;
-use api\models\WechatUser;
+use yii\web\Controller;
 
 
-class WechatController extends ActiveController
+class WechatController extends Controller
 {
 
-    public $modelClass = 'api\models\WechatUser';
-
-    public function behaviors()
-    {
-        $behaviors = parent::behaviors();
-        $behaviors['contentNegotiator']['formats']['text/html'] = Response::FORMAT_JSON;
-        $behaviors['corsFilter'] = [
-            'class' => Cors::className(),
-            'cors' => [
-                'Origin' => ['*'],
-                'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
-                'Access-Control-Request-Headers' => ['*'],
-                'Access-Control-Allow-Credentials' => true,
-                'Access-Control-Max-Age' => 86400,
-            ],
-        ];
-        return $behaviors;
-    }
     public function actionIndex()
     {
-        return ['111',222];
+        $data       = Yii::$app->request->get();
+        $nonce     = $data['nonce'];
+        $timestamp = $data['timestamp'];
+        $echostr   = $data['echostr'];
+        $signature = $data['signature'];
+        $token     = Yii::$app->params['wechat']['token'];
+
+        if (!$token) die('TOKEN is not defined!');
+
+        $arr = [$nonce, $timestamp, $token];
+        sort($arr, SORT_STRING);
+        $tmpStr = implode( $arr );
+        $tmpStr = sha1( $tmpStr );
+        //第一次接入微信接口的时候
+        if( $tmpStr == $signature && $echostr) die($echostr);
+        //第二次以后，回复消息
+        $this->reponseMsg();
     }
+
+    //接收事件推送并回复
+    public function reponseMsg()
+    {
+        //1.获取到微信推送过来的POST数据（xml格式）
+        $postArr = $GLOBALS['HTTP_RAW_POST_DATA'];
+        //2.处理消息类型，并设回复类型和内容
+        $postObj = simplexml_load_string($postArr);
+        //判断该数据包是否是订阅的事件推送
+        if ($postObj->MsgType == 'event')
+        {
+            //如果是关注 subscribe 事件
+            if (strtolower($postObj->Event == 'subscribe'))
+            {
+                //回复用户消息
+                $toUser   = $postObj->FromUserName;
+                $fromUser = $postObj->toUserName;
+                $time     = time();
+                $MsgType  = 'text';
+                $Content  = '欢迎关注我们的微信公众号';
+                $template = "<xml>
+                                <ToUserName><![CDATA[%s]]></ToUserName>
+                                <FromUserName><![CDATA[%s]]></FromUserName>
+                                <CreateTime>12345678</%s>
+                                <MsgType><![CDATA[%s]]></MsgType>
+                                <Content><![CDATA[%s]]></Content>
+                            </xml>";
+                $info     = sprintf($template, $toUser, $fromUser, $time, $MsgType, $Content);
+                echo $info;
+            }
+        }
+    }
+
     //微信服务接入时，服务器需授权验证
     public function actionValid()
     {

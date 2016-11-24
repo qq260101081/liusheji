@@ -11,7 +11,7 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'api\controllers',
-    'defaultRoute' => 'site/index',
+    'defaultRoute' => 'wechat/index',
     'components' => [
          'user' => [
              'identityClass' => 'common\models\User',
