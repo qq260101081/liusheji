@@ -4,7 +4,7 @@ namespace api\controllers;
 
 use Yii;
 use yii\web\Controller;
-use api\WechatSDK\WXBizMsgCrypt;
+use api\wechatsdk\WXBizMsgCrypt;
 
 
 class WechatController extends Controller

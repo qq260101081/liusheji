@@ -1,5 +1,5 @@
 <?php
-namespace api\WechatSDK;
+namespace api\wechatsdk;
 
 /**
  * PKCS7Encoder class
