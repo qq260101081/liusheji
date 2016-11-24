@@ -1,5 +1,5 @@
 <?php
-namespace api\wechatsdk;
+namespace api\components\wechatsdk;
 
 /**
  * error code 说明.
