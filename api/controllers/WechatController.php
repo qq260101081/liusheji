@@ -8,6 +8,7 @@ use yii\web\Controller;
 
 class WechatController extends Controller
 {
+    public $enableCsrfValidation = false;
 
     public function actionIndex()
     {
@@ -34,9 +35,10 @@ class WechatController extends Controller
     public function reponseMsg()
     {
         //1.获取到微信推送过来的POST数据（xml格式）
-        $postArr = $GLOBALS['HTTP_RAW_POST_DATA'];
+        $postArr = Yii::$app->request->getRawBody();
         //2.处理消息类型，并设回复类型和内容
-        $postObj = simplexml_load_string($postArr, 'SimpleXMLElement', LIBXML_NOCDATA);
+        $postObj = simplexml_load_string($postArr);
+
         //判断该数据包是否是订阅的事件推送
         if ($postObj->MsgType == 'event')
         {
