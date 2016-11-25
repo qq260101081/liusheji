@@ -171,8 +171,8 @@ class WechatController extends Controller
                     'sub_button' => [
                         [
                             'name' => urlencode('关于和家'),
-                            'type' => 'click',
-                            'key'  => 'songs'
+                            'type' => 'view',
+                            'url'  => 'https://mp.weixin.qq.com/cgi-bin/appmsg?begin=0&count=10&t=media/appmsg_list&type=10&action=list_card&lang=zh_CN&token=338812575'
                         ],
                         [
                             'name' => urlencode('我的消息'),
