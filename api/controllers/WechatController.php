@@ -51,7 +51,7 @@ class WechatController extends Controller
                 $nonce      = Yii::$app->request->get('nonce');
 
                 $toUser     = $postObj->FromUserName;
-                $fromUser   = $postObj->toUserName;
+                $fromUser   = $postObj->ToUserName;
                 $time       = time();
                 $MsgType    = 'text';
                 $Content    = '欢迎关注我们的微信公众号';
@@ -78,6 +78,126 @@ class WechatController extends Controller
             }
         }
     }
+
+    //获取微信token
+    public function getAccessToken()
+    {
+        $appid = Yii::$app->params['wechat']['appid'];
+        $appsecret = Yii::$app->params['wechat']['appsecret'];
+        $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$appid.'&secret='.$appsecret;
+        return $this->httpCurl($url);
+    }
+
+    //封装curl
+    public function httpCurl($url, $type = 'get', $res = 'json', $data = '')
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        //curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        if($type = 'post')
+        {
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        }
+        $result = curl_exec($ch);
+
+        if(curl_error($ch)) return curl_error($ch);
+        if($res == 'json')
+        {
+            $result = json_decode($result ,true);
+        }
+        curl_close($ch);
+        return $result;
+    }
+
+    //自定义微信菜单
+    public function actionCreateMenus()
+    {
+        $accessToken = $this->getAccessToken();
+        $url = 'https://api.weixin.qq.com/cgi-bin/menu/create?access_token=' . $accessToken;
+        $data = [
+            'button' => [
+                [
+                    'name' => urlencode('和家服务'),
+                    'sub_button' => [
+                        [
+                            'name' => urlencode('团队风采'),
+                            'type' => 'click',
+                            'key'  => 'songs'
+                        ],
+                        [
+                            'name' => urlencode('托辅中心'),
+                            'type' => 'view',
+                            'url'  => 'http://www.baidu.com'
+                        ]
+                        ,
+                        [
+                            'name' => urlencode('家庭服务'),
+                            'type' => 'view',
+                            'url'  => 'http://www.baidu.com'
+                        ]
+                    ]
+                ],
+                [
+                    'name' => urlencode('活动资讯'),
+                    'sub_button' => [
+                        [
+                            'name' => urlencode('活动花絮'),
+                            'type' => 'click',
+                            'key'  => 'songs'
+                        ],
+                        [
+                            'name' => urlencode('和家动态'),
+                            'type' => 'view',
+                            'url'  => 'http://www.baidu.com'
+                        ],
+                        [
+                            'name' => urlencode('行业资讯'),
+                            'type' => 'view',
+                            'url'  => 'http://www.baidu.com'
+                        ],
+                        [
+                            'name' => urlencode('最新活动'),
+                            'type' => 'view',
+                            'url'  => 'http://www.baidu.com'
+                        ]
+                    ]
+                ],
+                [
+                    'name' => urlencode('我的'),
+                    'sub_button' => [
+                        [
+                            'name' => urlencode('关于和家'),
+                            'type' => 'click',
+                            'key'  => 'songs'
+                        ],
+                        [
+                            'name' => urlencode('我的消息'),
+                            'type' => 'view',
+                            'url'  => 'http://www.baidu.com'
+                        ],
+                        [
+                            'name' => urlencode('我的订单'),
+                            'type' => 'view',
+                            'url'  => 'http://www.baidu.com'
+                        ],
+                        [
+                            'name' => urlencode('联系客服'),
+                            'type' => 'view',
+                            'url'  => 'http://www.baidu.com'
+                        ]
+                    ]
+                ]
+            ],
+        ];
+        $data = urldecode(json_encode($data));
+        $result = $this->httpCurl($url, 'post', 'json', $data);
+        print_r($result);
+    }
+
+
 
 
 
