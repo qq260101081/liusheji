@@ -85,7 +85,8 @@ class WechatController extends Controller
         $appid = Yii::$app->params['wechat']['appid'];
         $appsecret = Yii::$app->params['wechat']['appsecret'];
         $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$appid.'&secret='.$appsecret;
-        return $this->httpCurl($url);
+        $result = $this->httpCurl($url);
+        return $result['access_token'];
     }
 
     //封装curl
