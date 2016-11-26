@@ -76,7 +76,7 @@ class WechatController extends Controller
 
                 echo $encryptMsg;
             }
-            elseif (strtolower($postObj->Event) == 'click' && $postObj->eventkey == 'customer')
+            elseif (strtolower($postObj->Event) == 'click' && strtolower($postObj->EventKey) == 'customer')
             {
                 $encryptMsg = '';
                 $nonce      = Yii::$app->request->get('nonce');
