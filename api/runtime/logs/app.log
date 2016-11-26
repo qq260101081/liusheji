@@ -4012,3 +4012,351 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1480042432.147
     'REQUEST_TIME' => 1480042432
 ]
+2016-11-25 06:45:04 [::1][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: Illegal string offset 'access_token' in /Users/carl/www/liusheji/api/controllers/WechatController.php:89
+Stack trace:
+#0 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/InlineAction.php(55): api\controllers\WechatController->actionCreateMenus()
+#1 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/InlineAction.php(55): ::call_user_func_array:{/Users/carl/www/liusheji/vendor/yiisoft/yii2/base/InlineAction.php:55}()
+#2 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams()
+#3 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction()
+#4 /Users/carl/www/liusheji/vendor/yiisoft/yii2/web/Application.php(87): yii\base\Module->runAction()
+#5 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest()
+#6 /Users/carl/www/liusheji/api.php(18): yii\base\Application->run()
+#7 {main}
+2016-11-25 06:45:04 [::1][-][-][info][application] $_COOKIE = [
+    'advanced-frontend' => 'qbbdvroap7ttm90bab9gkba7m3'
+    '_csrf-frontend' => '3ca0e29b68ff416be5732c0ada5cffe713b56d92d2ceff2df4bd231b5e015c57a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"E_vrD1scXnoHoFVQWvk6UxyjVlew4EyD\";}'
+    'advanced-backend' => 'r9eiiciap19bha825ekif3s6j6'
+    '_csrf-backend' => '17612908a080fac0890b14986598514bd1fa4656bd818cbe52b3adfc8c578651a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"h1VYUZ7TI7qlxA8Uo2wk7oKTVIwADLex\";}'
+    'PHPSESSID' => 'k8sji5ihobg6beq7hmvk8rl0c7'
+    '_csrf' => '7292a4a19353776cf1350b0a1fe783a20338575e3be57ee196dae8cf174d99eaa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"4_bw01hlqRG2BXJV-UYRl3mNmJI9Jt81\";}'
+    '_identity-backend' => '657b91714b165268dc433b5de915283ac172d01d3c5d1faf751e7722c8c363e3a:2:{i:0;s:17:\"_identity-backend\";i:1;s:47:\"[11,\"a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF\",2592000]\";}'
+    '_identity' => '476ab5946675bd04bead01f3130b800bef793d107a790baedb6f54249a2fac4ba:2:{i:0;s:9:\"_identity\";i:1;s:47:\"[11,\"a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF\",2592000]\";}'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:50.0) Gecko/20100101 Firefox/50.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'advanced-frontend=qbbdvroap7ttm90bab9gkba7m3; _csrf-frontend=3ca0e29b68ff416be5732c0ada5cffe713b56d92d2ceff2df4bd231b5e015c57a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22E_vrD1scXnoHoFVQWvk6UxyjVlew4EyD%22%3B%7D; advanced-backend=r9eiiciap19bha825ekif3s6j6; _csrf-backend=17612908a080fac0890b14986598514bd1fa4656bd818cbe52b3adfc8c578651a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22h1VYUZ7TI7qlxA8Uo2wk7oKTVIwADLex%22%3B%7D; PHPSESSID=k8sji5ihobg6beq7hmvk8rl0c7; _csrf=7292a4a19353776cf1350b0a1fe783a20338575e3be57ee196dae8cf174d99eaa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%224_bw01hlqRG2BXJV-UYRl3mNmJI9Jt81%22%3B%7D; _identity-backend=657b91714b165268dc433b5de915283ac172d01d3c5d1faf751e7722c8c363e3a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A47%3A%22%5B11%2C%22a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF%22%2C2592000%5D%22%3B%7D; _identity=476ab5946675bd04bead01f3130b800bef793d107a790baedb6f54249a2fac4ba%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A47%3A%22%5B11%2C%22a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF%22%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Unix) PHP/7.0.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/carl/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/carl/www'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/carl/www/liusheji/api.php'
+    'REMOTE_PORT' => '57425'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/liusheji/api.php/wechat/create-menus'
+    'SCRIPT_NAME' => '/liusheji/api.php'
+    'PATH_INFO' => '/wechat/create-menus'
+    'PATH_TRANSLATED' => '/Users/carl/www/wechat/create-menus'
+    'PHP_SELF' => '/liusheji/api.php/wechat/create-menus'
+    'REQUEST_TIME_FLOAT' => 1480052704.141
+    'REQUEST_TIME' => 1480052704
+]
+2016-11-25 09:59:09 [::1][-][-][error][yii\base\InvalidParamException] yii\base\InvalidParamException: The view file does not exist: /Users/carl/www/liusheji/api/views/article/index.php in /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/View.php:226
+Stack trace:
+#0 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/Users/carl/www...', Array, Object(api\controllers\ArticleController))
+#1 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('index', Array, Object(api\controllers\ArticleController))
+#2 /Users/carl/www/liusheji/api/controllers/ArticleController.php(18): yii\base\Controller->render('index')
+#3 [internal function]: api\controllers\ArticleController->actionAbout()
+#4 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#5 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#6 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('about', Array)
+#7 /Users/carl/www/liusheji/vendor/yiisoft/yii2/web/Application.php(87): yii\base\Module->runAction('article/about', Array)
+#8 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /Users/carl/www/liusheji/api.php(18): yii\base\Application->run()
+#10 {main}
+2016-11-25 09:59:09 [::1][-][-][info][application] $_COOKIE = [
+    'advanced-frontend' => 'qbbdvroap7ttm90bab9gkba7m3'
+    '_csrf-frontend' => '3ca0e29b68ff416be5732c0ada5cffe713b56d92d2ceff2df4bd231b5e015c57a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"E_vrD1scXnoHoFVQWvk6UxyjVlew4EyD\";}'
+    'advanced-backend' => 'r9eiiciap19bha825ekif3s6j6'
+    '_csrf-backend' => '17612908a080fac0890b14986598514bd1fa4656bd818cbe52b3adfc8c578651a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"h1VYUZ7TI7qlxA8Uo2wk7oKTVIwADLex\";}'
+    'PHPSESSID' => 'k8sji5ihobg6beq7hmvk8rl0c7'
+    '_csrf' => '7292a4a19353776cf1350b0a1fe783a20338575e3be57ee196dae8cf174d99eaa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"4_bw01hlqRG2BXJV-UYRl3mNmJI9Jt81\";}'
+    '_identity-backend' => '657b91714b165268dc433b5de915283ac172d01d3c5d1faf751e7722c8c363e3a:2:{i:0;s:17:\"_identity-backend\";i:1;s:47:\"[11,\"a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF\",2592000]\";}'
+    '_identity' => '476ab5946675bd04bead01f3130b800bef793d107a790baedb6f54249a2fac4ba:2:{i:0;s:9:\"_identity\";i:1;s:47:\"[11,\"a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF\",2592000]\";}'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:50.0) Gecko/20100101 Firefox/50.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'advanced-frontend=qbbdvroap7ttm90bab9gkba7m3; _csrf-frontend=3ca0e29b68ff416be5732c0ada5cffe713b56d92d2ceff2df4bd231b5e015c57a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22E_vrD1scXnoHoFVQWvk6UxyjVlew4EyD%22%3B%7D; advanced-backend=r9eiiciap19bha825ekif3s6j6; _csrf-backend=17612908a080fac0890b14986598514bd1fa4656bd818cbe52b3adfc8c578651a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22h1VYUZ7TI7qlxA8Uo2wk7oKTVIwADLex%22%3B%7D; PHPSESSID=k8sji5ihobg6beq7hmvk8rl0c7; _csrf=7292a4a19353776cf1350b0a1fe783a20338575e3be57ee196dae8cf174d99eaa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%224_bw01hlqRG2BXJV-UYRl3mNmJI9Jt81%22%3B%7D; _identity-backend=657b91714b165268dc433b5de915283ac172d01d3c5d1faf751e7722c8c363e3a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A47%3A%22%5B11%2C%22a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF%22%2C2592000%5D%22%3B%7D; _identity=476ab5946675bd04bead01f3130b800bef793d107a790baedb6f54249a2fac4ba%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A47%3A%22%5B11%2C%22a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF%22%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Unix) PHP/7.0.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/carl/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/carl/www'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/carl/www/liusheji/api.php'
+    'REMOTE_PORT' => '58408'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/liusheji/api.php/article/about'
+    'SCRIPT_NAME' => '/liusheji/api.php'
+    'PATH_INFO' => '/article/about'
+    'PATH_TRANSLATED' => '/Users/carl/www/article/about'
+    'PHP_SELF' => '/liusheji/api.php/article/about'
+    'REQUEST_TIME_FLOAT' => 1480064349.776
+    'REQUEST_TIME' => 1480064349
+]
+2016-11-25 10:00:45 [::1][-][-][error][yii\base\InvalidParamException] yii\base\InvalidParamException: The view file does not exist: /Users/carl/www/liusheji/api/views/article/index.php in /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/View.php:226
+Stack trace:
+#0 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/Users/carl/www...', Array, Object(api\controllers\ArticleController))
+#1 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('index', Array, Object(api\controllers\ArticleController))
+#2 /Users/carl/www/liusheji/api/controllers/ArticleController.php(18): yii\base\Controller->render('index')
+#3 [internal function]: api\controllers\ArticleController->actionAbout()
+#4 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#5 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#6 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('about', Array)
+#7 /Users/carl/www/liusheji/vendor/yiisoft/yii2/web/Application.php(87): yii\base\Module->runAction('article/about', Array)
+#8 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /Users/carl/www/liusheji/api.php(18): yii\base\Application->run()
+#10 {main}
+2016-11-25 10:00:45 [::1][-][-][info][application] $_COOKIE = [
+    'advanced-frontend' => 'qbbdvroap7ttm90bab9gkba7m3'
+    '_csrf-frontend' => '3ca0e29b68ff416be5732c0ada5cffe713b56d92d2ceff2df4bd231b5e015c57a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"E_vrD1scXnoHoFVQWvk6UxyjVlew4EyD\";}'
+    'advanced-backend' => 'r9eiiciap19bha825ekif3s6j6'
+    '_csrf-backend' => '17612908a080fac0890b14986598514bd1fa4656bd818cbe52b3adfc8c578651a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"h1VYUZ7TI7qlxA8Uo2wk7oKTVIwADLex\";}'
+    'PHPSESSID' => 'k8sji5ihobg6beq7hmvk8rl0c7'
+    '_csrf' => '7292a4a19353776cf1350b0a1fe783a20338575e3be57ee196dae8cf174d99eaa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"4_bw01hlqRG2BXJV-UYRl3mNmJI9Jt81\";}'
+    '_identity-backend' => '657b91714b165268dc433b5de915283ac172d01d3c5d1faf751e7722c8c363e3a:2:{i:0;s:17:\"_identity-backend\";i:1;s:47:\"[11,\"a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF\",2592000]\";}'
+    '_identity' => '476ab5946675bd04bead01f3130b800bef793d107a790baedb6f54249a2fac4ba:2:{i:0;s:9:\"_identity\";i:1;s:47:\"[11,\"a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF\",2592000]\";}'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:50.0) Gecko/20100101 Firefox/50.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'advanced-frontend=qbbdvroap7ttm90bab9gkba7m3; _csrf-frontend=3ca0e29b68ff416be5732c0ada5cffe713b56d92d2ceff2df4bd231b5e015c57a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22E_vrD1scXnoHoFVQWvk6UxyjVlew4EyD%22%3B%7D; advanced-backend=r9eiiciap19bha825ekif3s6j6; _csrf-backend=17612908a080fac0890b14986598514bd1fa4656bd818cbe52b3adfc8c578651a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22h1VYUZ7TI7qlxA8Uo2wk7oKTVIwADLex%22%3B%7D; PHPSESSID=k8sji5ihobg6beq7hmvk8rl0c7; _csrf=7292a4a19353776cf1350b0a1fe783a20338575e3be57ee196dae8cf174d99eaa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%224_bw01hlqRG2BXJV-UYRl3mNmJI9Jt81%22%3B%7D; _identity-backend=657b91714b165268dc433b5de915283ac172d01d3c5d1faf751e7722c8c363e3a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A47%3A%22%5B11%2C%22a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF%22%2C2592000%5D%22%3B%7D; _identity=476ab5946675bd04bead01f3130b800bef793d107a790baedb6f54249a2fac4ba%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A47%3A%22%5B11%2C%22a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF%22%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Unix) PHP/7.0.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/carl/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/carl/www'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/carl/www/liusheji/api.php'
+    'REMOTE_PORT' => '58416'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/liusheji/api.php/article/about'
+    'SCRIPT_NAME' => '/liusheji/api.php'
+    'PATH_INFO' => '/article/about'
+    'PATH_TRANSLATED' => '/Users/carl/www/article/about'
+    'PHP_SELF' => '/liusheji/api.php/article/about'
+    'REQUEST_TIME_FLOAT' => 1480064445.582
+    'REQUEST_TIME' => 1480064445
+]
+2016-11-25 10:00:50 [::1][-][-][error][yii\base\InvalidParamException] yii\base\InvalidParamException: The view file does not exist: /Users/carl/www/liusheji/api/views/article/index.php in /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/View.php:226
+Stack trace:
+#0 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/Users/carl/www...', Array, Object(api\controllers\ArticleController))
+#1 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('index', Array, Object(api\controllers\ArticleController))
+#2 /Users/carl/www/liusheji/api/controllers/ArticleController.php(18): yii\base\Controller->render('index')
+#3 [internal function]: api\controllers\ArticleController->actionAbout()
+#4 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#5 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#6 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('about', Array)
+#7 /Users/carl/www/liusheji/vendor/yiisoft/yii2/web/Application.php(87): yii\base\Module->runAction('article/about', Array)
+#8 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /Users/carl/www/liusheji/api.php(18): yii\base\Application->run()
+#10 {main}
+2016-11-25 10:00:50 [::1][-][-][info][application] $_COOKIE = [
+    'advanced-frontend' => 'qbbdvroap7ttm90bab9gkba7m3'
+    '_csrf-frontend' => '3ca0e29b68ff416be5732c0ada5cffe713b56d92d2ceff2df4bd231b5e015c57a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"E_vrD1scXnoHoFVQWvk6UxyjVlew4EyD\";}'
+    'advanced-backend' => 'r9eiiciap19bha825ekif3s6j6'
+    '_csrf-backend' => '17612908a080fac0890b14986598514bd1fa4656bd818cbe52b3adfc8c578651a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"h1VYUZ7TI7qlxA8Uo2wk7oKTVIwADLex\";}'
+    'PHPSESSID' => 'k8sji5ihobg6beq7hmvk8rl0c7'
+    '_csrf' => '7292a4a19353776cf1350b0a1fe783a20338575e3be57ee196dae8cf174d99eaa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"4_bw01hlqRG2BXJV-UYRl3mNmJI9Jt81\";}'
+    '_identity-backend' => '657b91714b165268dc433b5de915283ac172d01d3c5d1faf751e7722c8c363e3a:2:{i:0;s:17:\"_identity-backend\";i:1;s:47:\"[11,\"a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF\",2592000]\";}'
+    '_identity' => '476ab5946675bd04bead01f3130b800bef793d107a790baedb6f54249a2fac4ba:2:{i:0;s:9:\"_identity\";i:1;s:47:\"[11,\"a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF\",2592000]\";}'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:50.0) Gecko/20100101 Firefox/50.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'advanced-frontend=qbbdvroap7ttm90bab9gkba7m3; _csrf-frontend=3ca0e29b68ff416be5732c0ada5cffe713b56d92d2ceff2df4bd231b5e015c57a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22E_vrD1scXnoHoFVQWvk6UxyjVlew4EyD%22%3B%7D; advanced-backend=r9eiiciap19bha825ekif3s6j6; _csrf-backend=17612908a080fac0890b14986598514bd1fa4656bd818cbe52b3adfc8c578651a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22h1VYUZ7TI7qlxA8Uo2wk7oKTVIwADLex%22%3B%7D; PHPSESSID=k8sji5ihobg6beq7hmvk8rl0c7; _csrf=7292a4a19353776cf1350b0a1fe783a20338575e3be57ee196dae8cf174d99eaa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%224_bw01hlqRG2BXJV-UYRl3mNmJI9Jt81%22%3B%7D; _identity-backend=657b91714b165268dc433b5de915283ac172d01d3c5d1faf751e7722c8c363e3a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A47%3A%22%5B11%2C%22a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF%22%2C2592000%5D%22%3B%7D; _identity=476ab5946675bd04bead01f3130b800bef793d107a790baedb6f54249a2fac4ba%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A47%3A%22%5B11%2C%22a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF%22%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Unix) PHP/7.0.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/carl/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/carl/www'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/carl/www/liusheji/api.php'
+    'REMOTE_PORT' => '58417'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/liusheji/api.php/article/about'
+    'SCRIPT_NAME' => '/liusheji/api.php'
+    'PATH_INFO' => '/article/about'
+    'PATH_TRANSLATED' => '/Users/carl/www/article/about'
+    'PHP_SELF' => '/liusheji/api.php/article/about'
+    'REQUEST_TIME_FLOAT' => 1480064450.743
+    'REQUEST_TIME' => 1480064450
+]
+2016-11-25 10:31:30 [::1][-][-][error][ParseError] ParseError: syntax error, unexpected ':', expecting ']' in /Users/carl/www/liusheji/api/controllers/WechatController.php:210
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('api\\controllers...')
+#1 [internal function]: spl_autoload_call('api\\controllers...')
+#2 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Module.php(562): class_exists('api\\controllers...')
+#3 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Module.php(520): yii\base\Module->createControllerByID('wechat')
+#4 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Module.php(448): yii\base\Module->createController('get-access-toke...')
+#5 /Users/carl/www/liusheji/vendor/yiisoft/yii2/web/Application.php(87): yii\base\Module->runAction('wechat/get-acce...', Array)
+#6 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /Users/carl/www/liusheji/api.php(18): yii\base\Application->run()
+#8 {main}
+2016-11-25 10:31:30 [::1][-][-][info][application] $_COOKIE = [
+    'advanced-frontend' => 'qbbdvroap7ttm90bab9gkba7m3'
+    '_csrf-frontend' => '3ca0e29b68ff416be5732c0ada5cffe713b56d92d2ceff2df4bd231b5e015c57a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"E_vrD1scXnoHoFVQWvk6UxyjVlew4EyD\";}'
+    'advanced-backend' => 'r9eiiciap19bha825ekif3s6j6'
+    '_csrf-backend' => '17612908a080fac0890b14986598514bd1fa4656bd818cbe52b3adfc8c578651a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"h1VYUZ7TI7qlxA8Uo2wk7oKTVIwADLex\";}'
+    'PHPSESSID' => 'k8sji5ihobg6beq7hmvk8rl0c7'
+    '_csrf' => '7292a4a19353776cf1350b0a1fe783a20338575e3be57ee196dae8cf174d99eaa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"4_bw01hlqRG2BXJV-UYRl3mNmJI9Jt81\";}'
+    '_identity-backend' => '657b91714b165268dc433b5de915283ac172d01d3c5d1faf751e7722c8c363e3a:2:{i:0;s:17:\"_identity-backend\";i:1;s:47:\"[11,\"a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF\",2592000]\";}'
+    '_identity' => '476ab5946675bd04bead01f3130b800bef793d107a790baedb6f54249a2fac4ba:2:{i:0;s:9:\"_identity\";i:1;s:47:\"[11,\"a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF\",2592000]\";}'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:50.0) Gecko/20100101 Firefox/50.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'advanced-frontend=qbbdvroap7ttm90bab9gkba7m3; _csrf-frontend=3ca0e29b68ff416be5732c0ada5cffe713b56d92d2ceff2df4bd231b5e015c57a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22E_vrD1scXnoHoFVQWvk6UxyjVlew4EyD%22%3B%7D; advanced-backend=r9eiiciap19bha825ekif3s6j6; _csrf-backend=17612908a080fac0890b14986598514bd1fa4656bd818cbe52b3adfc8c578651a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22h1VYUZ7TI7qlxA8Uo2wk7oKTVIwADLex%22%3B%7D; PHPSESSID=k8sji5ihobg6beq7hmvk8rl0c7; _csrf=7292a4a19353776cf1350b0a1fe783a20338575e3be57ee196dae8cf174d99eaa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%224_bw01hlqRG2BXJV-UYRl3mNmJI9Jt81%22%3B%7D; _identity-backend=657b91714b165268dc433b5de915283ac172d01d3c5d1faf751e7722c8c363e3a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A47%3A%22%5B11%2C%22a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF%22%2C2592000%5D%22%3B%7D; _identity=476ab5946675bd04bead01f3130b800bef793d107a790baedb6f54249a2fac4ba%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A47%3A%22%5B11%2C%22a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF%22%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Unix) PHP/7.0.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/carl/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/carl/www'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/carl/www/liusheji/api.php'
+    'REMOTE_PORT' => '58763'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/liusheji/api.php/wechat/get-access-token'
+    'SCRIPT_NAME' => '/liusheji/api.php'
+    'PATH_INFO' => '/wechat/get-access-token'
+    'PATH_TRANSLATED' => '/Users/carl/www/wechat/get-access-token'
+    'PHP_SELF' => '/liusheji/api.php/wechat/get-access-token'
+    'REQUEST_TIME_FLOAT' => 1480066290.151
+    'REQUEST_TIME' => 1480066290
+]
+2016-11-25 10:32:15 [::1][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: Illegal string offset 'access_token' in /Users/carl/www/liusheji/api/controllers/WechatController.php:89
+Stack trace:
+#0 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/InlineAction.php(55): ::call_user_func_array:{/Users/carl/www/liusheji/vendor/yiisoft/yii2/base/InlineAction.php:55}()
+#1 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams()
+#2 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction()
+#3 /Users/carl/www/liusheji/vendor/yiisoft/yii2/web/Application.php(87): yii\base\Module->runAction()
+#4 /Users/carl/www/liusheji/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest()
+#5 /Users/carl/www/liusheji/api.php(18): yii\base\Application->run()
+#6 {main}
+2016-11-25 10:32:15 [::1][-][-][info][application] $_COOKIE = [
+    'advanced-frontend' => 'qbbdvroap7ttm90bab9gkba7m3'
+    '_csrf-frontend' => '3ca0e29b68ff416be5732c0ada5cffe713b56d92d2ceff2df4bd231b5e015c57a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"E_vrD1scXnoHoFVQWvk6UxyjVlew4EyD\";}'
+    'advanced-backend' => 'r9eiiciap19bha825ekif3s6j6'
+    '_csrf-backend' => '17612908a080fac0890b14986598514bd1fa4656bd818cbe52b3adfc8c578651a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"h1VYUZ7TI7qlxA8Uo2wk7oKTVIwADLex\";}'
+    'PHPSESSID' => 'k8sji5ihobg6beq7hmvk8rl0c7'
+    '_csrf' => '7292a4a19353776cf1350b0a1fe783a20338575e3be57ee196dae8cf174d99eaa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"4_bw01hlqRG2BXJV-UYRl3mNmJI9Jt81\";}'
+    '_identity-backend' => '657b91714b165268dc433b5de915283ac172d01d3c5d1faf751e7722c8c363e3a:2:{i:0;s:17:\"_identity-backend\";i:1;s:47:\"[11,\"a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF\",2592000]\";}'
+    '_identity' => '476ab5946675bd04bead01f3130b800bef793d107a790baedb6f54249a2fac4ba:2:{i:0;s:9:\"_identity\";i:1;s:47:\"[11,\"a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF\",2592000]\";}'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:50.0) Gecko/20100101 Firefox/50.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'advanced-frontend=qbbdvroap7ttm90bab9gkba7m3; _csrf-frontend=3ca0e29b68ff416be5732c0ada5cffe713b56d92d2ceff2df4bd231b5e015c57a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22E_vrD1scXnoHoFVQWvk6UxyjVlew4EyD%22%3B%7D; advanced-backend=r9eiiciap19bha825ekif3s6j6; _csrf-backend=17612908a080fac0890b14986598514bd1fa4656bd818cbe52b3adfc8c578651a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22h1VYUZ7TI7qlxA8Uo2wk7oKTVIwADLex%22%3B%7D; PHPSESSID=k8sji5ihobg6beq7hmvk8rl0c7; _csrf=7292a4a19353776cf1350b0a1fe783a20338575e3be57ee196dae8cf174d99eaa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%224_bw01hlqRG2BXJV-UYRl3mNmJI9Jt81%22%3B%7D; _identity-backend=657b91714b165268dc433b5de915283ac172d01d3c5d1faf751e7722c8c363e3a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A47%3A%22%5B11%2C%22a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF%22%2C2592000%5D%22%3B%7D; _identity=476ab5946675bd04bead01f3130b800bef793d107a790baedb6f54249a2fac4ba%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A47%3A%22%5B11%2C%22a8IvWdnu1Sxli52teCQh-LJeeVHNGKGF%22%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Unix) PHP/7.0.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/carl/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/carl/www'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/carl/www/liusheji/api.php'
+    'REMOTE_PORT' => '58766'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/liusheji/api.php/wechat/get-access-token'
+    'SCRIPT_NAME' => '/liusheji/api.php'
+    'PATH_INFO' => '/wechat/get-access-token'
+    'PATH_TRANSLATED' => '/Users/carl/www/wechat/get-access-token'
+    'PHP_SELF' => '/liusheji/api.php/wechat/get-access-token'
+    'REQUEST_TIME_FLOAT' => 1480066335.289
+    'REQUEST_TIME' => 1480066335
+]

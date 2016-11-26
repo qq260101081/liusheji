@@ -76,16 +76,28 @@ class WechatController extends Controller
 
                 echo $encryptMsg;
             }
+            elseif (strtolower($postObj->Event) == 'click' && $postObj->eventkey == 'customer')
+            {
+                $accessToken = $this->actionGetAccessToken();
+                $url = 'https://api.weixin.qq.com/customservice/kfsession/create?access_token=' . $accessToken;
+                $postData = [
+                    'kf_account' => 'test1@gh_4a64cebabaa2',
+                    'openid' => $postObj->FromUserName,
+                    'text' => urlencode('请求接口客服'),
+                ];
+                echo $this->httpCurl($url, 'post', 'json', urldecode(json_encode($postData)));
+            }
         }
     }
 
     //获取微信token
-    public function getAccessToken()
+    public function actionGetAccessToken()
     {
         $appid = Yii::$app->params['wechat']['appid'];
         $appsecret = Yii::$app->params['wechat']['appsecret'];
         $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$appid.'&secret='.$appsecret;
         $result = $this->httpCurl($url);
+        var_dump($result['access_token']);die;
         return $result['access_token'];
     }
 
@@ -116,7 +128,7 @@ class WechatController extends Controller
     //自定义微信菜单
     public function actionCreateMenus()
     {
-        $accessToken = $this->getAccessToken();
+        $accessToken = $this->actionGetAccessToken();
         $url = 'https://api.weixin.qq.com/cgi-bin/menu/create?access_token=' . $accessToken;
         $data = [
             'button' => [
@@ -172,7 +184,7 @@ class WechatController extends Controller
                         [
                             'name' => urlencode('关于和家'),
                             'type' => 'view',
-                            'url'  => 'https://mp.weixin.qq.com/cgi-bin/appmsg?begin=0&count=10&t=media/appmsg_list&type=10&action=list_card&lang=zh_CN&token=338812575'
+                            'url'  => 'http://mp.weixin.qq.com/s/MZvyaqG67Kvsnmj1BkrKSw'
                         ],
                         [
                             'name' => urlencode('我的消息'),
@@ -186,8 +198,8 @@ class WechatController extends Controller
                         ],
                         [
                             'name' => urlencode('联系客服'),
-                            'type' => 'view',
-                            'url'  => 'http://www.baidu.com'
+                            'type' => 'click',
+                            'key'  => 'customer'
                         ]
                     ]
                 ]
@@ -198,6 +210,23 @@ class WechatController extends Controller
         print_r($result);
     }
 
+    //新增永久图文素材
+    public function actionCreatePermanentMaterial()
+    {
+        $accessToken = $this->actionGetAccessToken();
+        $url = 'https://api.weixin.qq.com/cgi-bin/material/add_news?access_token=' . $accessToken;
+        $postData = [
+            'articles' => [
+                "title" => '关于和家',
+               "thumb_media_id" => THUMB_MEDIA_ID,
+               "author" => '小杨',
+               "digest" => DIGEST,
+               "show_cover_pic" => SHOW_COVER_PIC(0 / 1),
+               "content" => '',
+               "content_source_url" => CONTENT_SOURCE_URL
+            ]
+        ];
+    }
 
 
 
