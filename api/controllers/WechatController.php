@@ -78,14 +78,30 @@ class WechatController extends Controller
             }
             elseif (strtolower($postObj->Event) == 'click' && $postObj->eventkey == 'customer')
             {
-                $accessToken = $this->actionGetAccessToken();
-                $url = 'https://api.weixin.qq.com/customservice/kfsession/create?access_token=' . $accessToken;
-                $postData = [
-                    'kf_account' => 'test1@gh_4a64cebabaa2',
-                    'openid' => $postObj->FromUserName,
-                    'text' => urlencode('请求接口客服'),
-                ];
-                echo $this->httpCurl($url, 'post', 'json', urldecode(json_encode($postData)));
+                $encryptMsg = '';
+                $nonce      = Yii::$app->request->get('nonce');
+                $toUser     = $postObj->FromUserName;
+                $fromUser   = $postObj->ToUserName;
+                $time       = time();
+                $MsgType    = 'transfer_customer_service';
+
+                $template   = "<xml>
+                                <ToUserName><![CDATA[%s]]></ToUserName>
+                                <FromUserName><![CDATA[%s]]></FromUserName>
+                                <CreateTime>%s</CreateTime>
+                                <MsgType><![CDATA[%s]]></MsgType>
+                               </xml>";
+                $info       = sprintf($template, $toUser, $fromUser, $time, $MsgType);
+                $pc = new WXBizMsgCrypt(
+                    Yii::$app->params['wechat']['token'],
+                    Yii::$app->params['wechat']['encodingAESKey'],
+                    Yii::$app->params['wechat']['appid']
+                );
+                //加密消息
+                $errCode = $pc->encryptMsg($info, $time, $nonce, $encryptMsg);
+                if ($errCode != 0) echo $errCode;
+
+                echo $encryptMsg;
             }
         }
     }
@@ -97,7 +113,6 @@ class WechatController extends Controller
         $appsecret = Yii::$app->params['wechat']['appsecret'];
         $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$appid.'&secret='.$appsecret;
         $result = $this->httpCurl($url);
-        var_dump($result['access_token']);die;
         return $result['access_token'];
     }
 
